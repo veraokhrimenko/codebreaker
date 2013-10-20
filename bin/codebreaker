@@ -1,0 +1,12 @@
+$LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
+require '../game/game'
+
+game = Codebreaker::Game.new(STDOUT)
+secret = rand(0-999)+999
+puts secret
+game.start(secret.to_s)
+5.times do 
+    guess = gets.strip
+    game.guess(guess.to_s)
+end
+
